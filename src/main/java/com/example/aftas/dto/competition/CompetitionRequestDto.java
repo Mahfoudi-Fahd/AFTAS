@@ -23,7 +23,7 @@ import java.util.List;
 public class CompetitionRequestDto {
 
     @NotNull (message = "date is required")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yy-MM-dd")
     @FutureOrPresent(message = "date must be in the present or in the future")
     private LocalDate date;
 
@@ -57,13 +57,6 @@ public class CompetitionRequestDto {
                 .amount(amount)
                 .build();
     }
-
-
-
-
-
-
-
 
 
 }

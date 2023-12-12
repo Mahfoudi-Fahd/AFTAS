@@ -17,16 +17,17 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CompetitionController {
 
-    CompetitionService competitionService;
+  private final   CompetitionService competitionService;
 
     @PostMapping("/save")
     public ResponseEntity<ResponseMessage> save(@Valid @RequestBody CompetitionRequestDto competitionRequestDto) {
 
         Competition competition = competitionRequestDto.toCompetition();
 
-        Competition competitionCreated = competitionService.save(competition);
+          competitionService.save(competition);
+        CompetitionResponseDto competitionResponseDto = CompetitionResponseDto.fromCompetition(competition);
 
-        return ResponseMessage.created(CompetitionResponseDto.fromCompetition(competitionCreated), "Competition created successfully");
+        return ResponseMessage.created(     competitionResponseDto, "Competition created successfully");
 
     }
 
