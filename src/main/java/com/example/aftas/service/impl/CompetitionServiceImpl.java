@@ -21,6 +21,12 @@ public class CompetitionServiceImpl implements CompetitionService {
     @Override
     public Competition save(Competition competition) {
 
+        // Check if a competition with the same date already exists
+        if ( competitionExistsWithSameDate(competition.getDate())) {
+
+            throw new IllegalArgumentException("A competition with the same date already exists");
+        }
+
         String code = generateCode(competition.getLocation(), competition.getDate());
         competition.setCompetitionCode(code);
         return competitionRepository.save(competition);
@@ -49,5 +55,12 @@ public class CompetitionServiceImpl implements CompetitionService {
         String formattedDate = date.format(dateFormatter);
 
         return locationCode + "-" + formattedDate;
+    }
+
+
+    private boolean competitionExistsWithSameDate(LocalDate date) {
+        List<Competition> competitionsWithSameDate = competitionRepository.findByDate(date);
+
+        return !competitionsWithSameDate.isEmpty();
     }
 }

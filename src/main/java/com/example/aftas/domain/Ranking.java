@@ -12,21 +12,22 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 public class Ranking {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+
+    @EmbeddedId
+    private RankId id;
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    @MapsId("memberId")
+    private Member member;
+
+    @ManyToOne
+    @JoinColumn(name = "competition_id")
+    @MapsId("competitionId")
+    private Competition competition;
 
     private Integer rank;
 
     private Integer score;
-
-    @ManyToOne
-    private Member member;
-
-
-    @ManyToOne
-    @JoinColumn(name = "competition_id")
-    private Competition competition;
 
 }
