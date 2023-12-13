@@ -3,6 +3,8 @@ package com.example.aftas.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -22,8 +24,7 @@ public class Fish {
     @ManyToOne
     private Level level;
 
-    @ManyToOne
-    @JoinColumn(name = "hunting_id")
-    private Hunting hunting;
+    @OneToMany(mappedBy = "fish")
+    private List<Hunting> hunting;
 
 }

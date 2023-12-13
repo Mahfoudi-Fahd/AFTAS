@@ -1,10 +1,16 @@
 package com.example.aftas.domain;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Hunting {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,8 +22,10 @@ public class Hunting {
     @ManyToOne
     private Member member;
 
-    @OneToMany(mappedBy = "hunting")
-    private List<Fish> fishList;
+   @ManyToOne
+    private Fish fish;
+
+
 
 
 }
