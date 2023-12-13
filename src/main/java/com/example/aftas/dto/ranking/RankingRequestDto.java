@@ -21,8 +21,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class RankingRequestDto {
 
+    @NotNull(message = "Member number is required")
     private Integer memberNumber;
 
+    @NotBlank(message = "Competition code is required")
     private String competitionCode;
 
 
