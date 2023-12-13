@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -42,7 +43,13 @@ public class CompetitionController {
     }
 
     @GetMapping("/all")
-    public List<Competition> findAll() {
-        return competitionService.findAll();
+    public ResponseEntity findAll() {
+        List<Competition> competitionList = competitionService.findAll();
+        List<CompetitionResponseDto> competitionResponseDtoList = new ArrayList<>();
+        for (Competition competition : competitionList) {
+            competitionResponseDtoList.add(CompetitionResponseDto.fromCompetition(competition));
+        }
+        return ResponseMessage.ok(competitionResponseDtoList, "Competitions retrieved successfully");
+
     }
 }

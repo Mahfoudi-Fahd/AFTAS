@@ -61,4 +61,9 @@ public class MemberServiceImpl implements MemberService {
     public List<Member> findAll() {
         return memberRepository.findAll();
     }
+
+    @Override
+    public Member findMemberByNumber(Integer number) {
+        return memberRepository.findMemberByNumber(number);
+    }
 }

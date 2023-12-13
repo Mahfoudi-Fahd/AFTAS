@@ -23,4 +23,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
   Integer findMaxNumber();
 
   Member findByIdentityNumber(String identityNumber);
+
+  Member findMemberByNumber(Integer number);
 }

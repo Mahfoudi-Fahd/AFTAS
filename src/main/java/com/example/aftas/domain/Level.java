@@ -1,12 +1,14 @@
 package com.example.aftas.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Level {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -16,4 +16,5 @@ public interface MemberService {
     public void delete(Long id);
 
     public List<Member> findAll();
+    Member findMemberByNumber(Integer number);
 }

@@ -2,6 +2,7 @@ package com.example.aftas.dto.competition;
 
 import com.example.aftas.domain.Competition;
 import com.example.aftas.domain.Ranking;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -29,7 +30,7 @@ public class CompetitionResponseDto {
 
         private Double amount;
 
-        private List<Ranking> ranking;
+
 
 
       public static CompetitionResponseDto fromCompetition(Competition competition){
@@ -41,8 +42,7 @@ public class CompetitionResponseDto {
                   competition.getEndTime(),
                   competition.getNumberOfParticipants(),
                   competition.getLocation(),
-                  competition.getAmount(),
-                  competition.getRanking()
+                  competition.getAmount()
           );
 
       }
