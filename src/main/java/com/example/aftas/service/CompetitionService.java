@@ -9,8 +9,8 @@ import java.util.List;
 public interface CompetitionService {
 
     public Competition save(Competition competition);
-    public Competition findById(Long id);
     public Competition findByCode(String code);
     public List<Competition> findAll();
     Competition findCompetitionByCode(String code);
+    Competition getCompetitionById(Long competitionId);
 }

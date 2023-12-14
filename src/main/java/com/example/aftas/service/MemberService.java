@@ -17,4 +17,6 @@ public interface MemberService {
 
     public List<Member> findAll();
     Member findMemberByNumber(Integer number);
+
+    Member getMemberById(Long memberId);
 }

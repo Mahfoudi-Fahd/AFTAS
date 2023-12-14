@@ -14,4 +14,5 @@ public interface RankingService {
     public Ranking findByCompetitionCodeAndMemberNumber(String code, Integer number);
     public Ranking findByCompetitionAndMember(Competition competition, Member member);
 
+    void changeRankingScore(Competition competition, Member member, Integer fishScore);
 }

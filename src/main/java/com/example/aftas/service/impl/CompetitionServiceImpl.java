@@ -32,10 +32,6 @@ public class CompetitionServiceImpl implements CompetitionService {
         return competitionRepository.save(competition);
     }
 
-    @Override
-    public Competition findById(Long id) {
-        return null;
-    }
 
     @Override
     public Competition findByCode(String code) {
@@ -50,6 +46,11 @@ public class CompetitionServiceImpl implements CompetitionService {
     @Override
     public Competition findCompetitionByCode(String code) {
         return competitionRepository.searchCompetitionByCompetitionCode(code);
+    }
+
+    @Override
+    public Competition getCompetitionById(Long competitionId) {
+        return competitionRepository.findById(competitionId).orElseThrow(() -> new IllegalArgumentException("Competition with id " + competitionId + " not found"));
     }
 
 

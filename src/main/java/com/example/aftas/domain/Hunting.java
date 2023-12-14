@@ -17,7 +17,7 @@ public class Hunting {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private String numberOfFish;
+    private Integer numberOfFish;
 
     @ManyToOne
     private Member member;
@@ -25,7 +25,6 @@ public class Hunting {
    @ManyToOne
     private Fish fish;
 
-
-
-
+    @ManyToOne
+    private Competition competition;
 }

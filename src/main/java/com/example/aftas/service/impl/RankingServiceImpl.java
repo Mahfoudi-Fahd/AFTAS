@@ -54,4 +54,10 @@ public class RankingServiceImpl implements RankingService {
     public Ranking findByCompetitionAndMember(Competition competition, Member member) {
         return rankingRepository.findByCompetitionAndMember(competition, member);
     }
+    @Override
+    public void changeRankingScore(Competition competition, Member member, Integer fishScore) {
+        Ranking ranking = rankingRepository.findByCompetitionAndMember(competition,member);
+        ranking.setScore(ranking.getScore() + fishScore);
+        rankingRepository.save(ranking);
+    }
 }

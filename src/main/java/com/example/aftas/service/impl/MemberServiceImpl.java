@@ -66,4 +66,9 @@ public class MemberServiceImpl implements MemberService {
     public Member findMemberByNumber(Integer number) {
         return memberRepository.findMemberByNumber(number);
     }
+
+    @Override
+    public Member getMemberById(Long memberId) {
+        return memberRepository.findById(memberId).orElseThrow(() -> new IllegalArgumentException("Member with id " + memberId + " not found"));
+    }
 }

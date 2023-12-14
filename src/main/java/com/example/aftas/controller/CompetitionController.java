@@ -34,7 +34,7 @@ public class CompetitionController {
 
     @GetMapping("/{id}")
     public Competition findById(Long id) {
-        return competitionService.findById(id);
+        return competitionService.getCompetitionById(id);
     }
 
     @GetMapping("/{code}")
