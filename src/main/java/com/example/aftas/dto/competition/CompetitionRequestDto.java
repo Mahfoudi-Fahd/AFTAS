@@ -19,6 +19,9 @@ import java.util.List;
 @Builder
 public class CompetitionRequestDto {
 
+    @NotBlank(message = "competitionName is required")
+    private String competitionName;
+
     @NotNull (message = "date is required")
     @DateTimeFormat(pattern = "yy-MM-dd")
     @Future(message = "date must be in the future")
@@ -46,6 +49,7 @@ public class CompetitionRequestDto {
 
     public Competition toCompetition(){
         return  Competition.builder()
+                .competitionName(competitionName)
                 .date(date)
                 .startTime(startTime)
                 .endTime(endTime)

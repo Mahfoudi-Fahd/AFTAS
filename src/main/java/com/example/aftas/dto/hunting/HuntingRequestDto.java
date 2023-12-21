@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @Component
 @AllArgsConstructor
+@Builder
 public class HuntingRequestDto {
 
     @NotNull(message = "Member id is required")

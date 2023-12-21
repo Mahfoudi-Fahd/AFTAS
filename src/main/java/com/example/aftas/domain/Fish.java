@@ -1,5 +1,6 @@
 package com.example.aftas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,7 @@ public class Fish {
     @ManyToOne
     private Level level;
 
+    @JsonIgnoreProperties({"fish"})
     @OneToMany(mappedBy = "fish")
     private List<Hunting> hunting;
 

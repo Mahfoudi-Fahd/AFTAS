@@ -1,5 +1,6 @@
 package com.example.aftas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,8 @@ public class Competition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String competitionName;
+
     private String competitionCode;
 
     private LocalDate date;
@@ -32,9 +35,11 @@ public class Competition {
 
     private Double amount;
 
+    @JsonIgnoreProperties({"competition"})
     @OneToMany(mappedBy = "competition")
     private List<Ranking> ranking;
 
+   @JsonIgnoreProperties({"competition"})
     @OneToMany(mappedBy = "competition")
     private List<Hunting> hunting;
 

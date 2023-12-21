@@ -1,6 +1,7 @@
 package com.example.aftas.domain;
 
 import com.example.aftas.domain.Enums.IdentityDocumentType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -35,9 +36,11 @@ public class Member {
 
     private IdentityDocumentType identityDocumentTypeEnum;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Hunting> huntingList;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Ranking> rankingList;
 

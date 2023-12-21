@@ -6,6 +6,8 @@ import com.example.aftas.service.FishService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class FishServiceImpl implements FishService {
@@ -29,5 +31,10 @@ public class FishServiceImpl implements FishService {
     @Override
     public Fish getFishById(Long fishId) {
         return fishRepository.findById(fishId).orElseThrow(() -> new IllegalArgumentException("Fish not found"));
+    }
+
+    @Override
+    public List<Fish> findAll() {
+        return fishRepository.findAll();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.aftas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,7 @@ public class Ranking {
     @MapsId("memberId")
     private Member member;
 
+    @JsonIgnoreProperties({"ranking","hunting"})
     @ManyToOne
     @MapsId("competitionId")
     private Competition competition;

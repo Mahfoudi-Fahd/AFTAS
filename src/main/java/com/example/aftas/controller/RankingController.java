@@ -1,6 +1,6 @@
 package com.example.aftas.controller;
 
-import com.example.aftas.domain.RankId;
+
 import com.example.aftas.domain.Ranking;
 import com.example.aftas.dto.ranking.RankingRequestDto;
 import com.example.aftas.dto.ranking.RankingResponseDto;
@@ -9,7 +9,7 @@ import com.example.aftas.service.RankingService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,4 +36,6 @@ return ResponseMessage.created(rankingResponseDto, "Ranking created successfully
     public Ranking findByCompetitionCodeAndMemberNumber(String code, Integer number) {
         return rankingService.findByCompetitionCodeAndMemberNumber(code, number);
     }
+
+
 }

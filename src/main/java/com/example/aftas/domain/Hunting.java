@@ -1,5 +1,6 @@
 package com.example.aftas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class Hunting {
    @ManyToOne
     private Fish fish;
 
+    @JsonIgnoreProperties({"hunting"})
     @ManyToOne
     private Competition competition;
 }

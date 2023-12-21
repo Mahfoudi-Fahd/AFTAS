@@ -16,6 +16,8 @@ import java.util.List;
 @Builder
 public class CompetitionResponseDto {
 
+        private String competitionName;
+
         private String competitionCode;
 
         private LocalDate date;
@@ -36,6 +38,7 @@ public class CompetitionResponseDto {
       public static CompetitionResponseDto fromCompetition(Competition competition){
 
           return new CompetitionResponseDto(
+                  competition.getCompetitionName(),
                   competition.getCompetitionCode(),
                   competition.getDate(),
                   competition.getStartTime(),
@@ -46,10 +49,6 @@ public class CompetitionResponseDto {
           );
 
       }
-
-
-
-
 
 
     }
